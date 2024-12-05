@@ -1,0 +1,559 @@
+/* Reset default margin dan padding */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Font dan background */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    line-height: 1.6;
+}
+
+/* Header dan Navbar */
+header {
+    background-color: white;
+    color: #1C2E4E;
+    font-weight: bolder;
+    padding: 20px 40px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.navbar .logo img {
+    width: 150px;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1C2E4E;
+    font-weight: bolder;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #FFC107;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 100px 40px;
+    background-color: #D9D9D9;
+    color: white;
+}
+
+.hero-content {
+    width: 100%;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 100px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hero .btn-primary {
+    background-color: #FFC107;
+    color: #1C2E4E;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.hero .btn-primary:hover {
+    background-color: #FFB300;
+}
+
+.hero-image img {
+    max-width: 50%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Fitur Kami */
+.features {
+    padding: 80px 40px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: #1C2E4E;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-card img {
+    max-width: 50px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Berita Section */
+.news {
+    padding: 80px 40px;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.news h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.news-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.news-card {
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Larger shadow for more depth */
+    padding: 20px;
+    width: 40%;
+    border-radius: 15px; /* Rounded corners for the card */
+    text-align: left;
+    transition: transform 0.3s ease-in-out; /* Smooth scaling effect on hover */
+    overflow: hidden; /* Prevents content from overflowing */
+    margin-bottom: 30px;
+}
+
+.news-card img {
+    width: 100%;
+    border-radius: 10px; /* Rounded corners for image */
+    object-fit: cover; /* Ensures image fits within container */
+    height: 200px; /* Fixed height to keep image size consistent */
+}
+
+.news-content {
+    margin-top: 15px;
+}
+
+.news-card h3 {
+    color: #1C2E4E;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.news-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* New button for the arrow */
+.btn-arrow {
+    display: inline-block;
+    background-color: #1C2E4E;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    margin-left: 350px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect on the arrow button */
+.btn-arrow:hover {
+    background-color: #FFC107;
+}
+
+/* Hover effect on news cards */
+.news-card:hover {
+    transform: scale(1.05); /* Slightly scale up the card on hover */
+}
+
+
+/* Prestasi Section */
+.prestasi {
+    padding: 80px 40px;
+    color: white;
+    background-color: #1C2E4E;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Wrapper untuk menampung card */
+.prestasi-wrapper {
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container untuk card */
+.prestasi-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Card Container (untuk tombol panah dan card) */
+.prestasi-card-container {
+    padding-top: 60px;
+    position: relative;
+    width: 45%;
+}
+
+/* Tombol untuk mengganti prestasi */
+.before-btn, .after-btn {
+    background-color: white;
+    color: #1C2E4E;
+    border-radius: 50%; /* Membuat lingkaran */
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+    position: absolute;
+    top: -25px; /* Menempatkan tombol di atas card */
+    transform: translateX(-50%); /* Memposisikan tombol tepat di tengah card */
+}
+
+.before-btn {
+    left: 20%;
+    transform: translateX(-50%); /* Memposisikan tombol kiri di tengah card */
+    margin-left: -60px; /* Memberikan jarak antar tanda panah */
+}
+
+.after-btn {
+    right: 20%;
+    transform: translateX(50%); /* Memposisikan tombol kanan di tengah card */
+    margin-right: -60px; /* Memberikan jarak antar tanda panah */
+}
+
+/* Card Prestasi */
+.prestasi-card {
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.prestasi-card:hover {
+    transform: scale(1.05); /* Efek hover untuk memperbesar card */
+}
+
+/* Bagian gambar dalam card */
+.prestasi-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0; /* Membuat gambar sudut atas melengkung */
+}
+
+/* Bagian konten dalam card */
+.prestasi-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.prestasi-content h3 {
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+    color: #1C2E4E;
+    margin-bottom: 15px;
+}
+
+.prestasi-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Hover Effect pada tombol atau elemen dalam card */
+.prestasi-content a {
+    text-decoration: none;
+    color: #1C2E4E;
+    font-weight: bold;
+    background-color: #FFC107;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.prestasi-content a:hover {
+    background-color: #FFB300;
+}
+
+/* Ekstrakurikuler Detail Section */
+.ekstrakurikuler-detail {
+    padding: 80px 40px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+.ekstrakurikuler-detail h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+/* Container untuk card ekstrakurikuler */
+.ekstrakurikuler-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Tombol untuk mengganti ekstrakurikuler */
+.prev-btn, .next-btn {
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: #1C2E4E;
+    color: white;
+    border-radius: 50%; /* Membuat lingkaran */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.prev-btn {
+    left: -50px;
+}
+
+.next-btn {
+    right: -50px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    color: #FFC107;
+}
+
+/* Card Ekstrakurikuler */
+.ekstrakurikuler-card {
+    border: 3px solid #1C2E4E;
+    display: flex;
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    padding: 40px;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Lingkaran untuk simbol ekstrakurikuler */
+.ekstrakurikuler-symbol {
+    width: 40%;
+    height: 250px;
+    background-color: #1C2E4E;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.symbol-img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+/* Teks sebelah kanan */
+.ekstrakurikuler-text {
+    padding-bottom: 100px;
+    margin-right: 70px;
+    text-align: justify;
+}
+
+.ekstrakurikuler-detail h2 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #1C2E4E;
+}
+
+.ekstrakurikuler-text h3 {
+    margin-left: 70px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #1C2E4E;
+    margin-bottom: 10px;
+}
+
+.ekstrakurikuler-description {
+    font-size: 16px;
+    color: #1C2E4E;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.ekstrakurikuler-text .btn-detail {
+    margin-left: 73px;
+    background-color: #FFC107;
+    color: #1C2E4E;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.ekstrakurikuler-text .btn-detail:hover {
+    background-color: #FFB300;
+}
+
+/* Google Maps Card */
+.maps-card {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #1C2E4E;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.maps-card h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.map-container iframe {
+    border-radius: 10px;
+    max-width: 50%;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+.school-contact p {
+    font-size: 18px;
+    margin: 10px 0;
+    color: white;
+}
+
+/* Styling for Social Media and School Symbol Cards */
+.social-media-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.card {
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    width: 25%;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    object-fit: contain;
+}
+
+.card p {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bolder;
+    color: #1C2E4E;
+}
+
+/* Social Media Links */
+.social-media-links {
+    list-style: none;
+    margin-left: 50px;
+    text-align: justify;
+}
+
+.social-media-links li {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.social-media-links a {
+    text-decoration: none;
+    color: #1C2E4E;
+    transition: color 0.3s;
+}
+
+.social-media-links a:hover {
+    color: #FFC107;
+}
+
+
+/* Footer */
+footer {
+    background-color: #1C2E4E;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
