@@ -9,29 +9,47 @@
 </head>
 <body>
 
+    <div id="loading-screen" class="loading-screen">
+        <img src="assets/Logo SMA.png" alt="Loading" class="loading-logo">
+    </div>
+
     <!-- Header dan Navbar -->
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <img src="logo.png" alt="SMA Negeri 6 Tangerang">
+            <div class="logo-container">
+                <img src="assets\Logo SMA.png" alt="SMA Negeri 6 Tangerang">
+                <h1 class="school-name">SMA NEGERI 6 TANGERANG</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#profil">Profil</a></li>
-                <li><a href="#guru">Guru</a></li>
-                <li><a href="#kesiswaan">Kesiswaan</a></li>
-                <li><a href="#ppdb">PPDB</a></li>
-                <li><a href="#kontak">Kontak</a></li>
+                <li class="dropdown">
+                    <a href="#">Profil ▼</a>
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown">
+                        <li><a href="visimisi.html">Visi dan Misi</a></li>
+                        <li><a href="sejarah.html">Sejarah</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Guru</a></li>
+                <li class="dropdown">
+                    <a href="#">Kesiswaan ▼</a>
+                    <!-- Dropdown Menu -->
+                    <ul class="dropdown">
+                        <li><a href="ekstrakurikuler.html">Ekstrakurikuler</a></li>
+                        <li><a href="prestasi.html">Prestasi</a></li>
+                    </ul>
+                </li>
+                <li><a href="ppdb.html">PPDB</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
             </ul>
         </nav>
     </header>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-image">
-                <img src="assets\images.jpg" alt="Hero Image">
+                <img src="assets\Logo SMA.png" alt="Hero Image">
             </div>
-            <h1>SMA Negeri 6 Tangerang</h1>
+            <h1>SMA NEGERI 6 TANGERANG</h1>
         </div>
     </section>
 
@@ -65,7 +83,7 @@
 <section class="news">
     <div class="news-cards">
         <div class="news-card">
-            <img src="berita1.jpg" alt="Berita 1">
+            <img src="assets/berita1.jpg" alt="Berita 1">
             <div class="news-content">
                 <h3>Pemilihan Ketua OSIS Berbasis Digital: Inovasi Siswa-Siswi SMAN 6 Tangerang</h3>
                 <p>
@@ -75,7 +93,7 @@
             </div>
         </div>
         <div class="news-card">
-            <img src="berita2.jpg" alt="Berita 2">
+            <img src="assets/berita2.jpg" alt="Berita 2">
             <div class="news-content">
                 <h3>Pemilihan Ketua OSIS Berbasis Digital: Inovasi Siswa-Siswi SMAN 6 Tangerang</h3>
                 <p>
@@ -99,7 +117,7 @@
                 <button class="before-btn" onclick="changePrestasi(-1)">&#8592;</button>
                 <div class="prestasi-card">
                     <div class="prestasi-image">
-                        <img src="prestasi1.jpg" alt="Prestasi 1">
+                        <img src="assets/prestasi1.jpg" alt="Prestasi 1">
                     </div>
                     <div class="prestasi-content">
                         <h3>SMA Negeri 6 Tangerang Berhasil Meraih Prestasi Kembali</h3>
@@ -112,7 +130,7 @@
                 <button class="after-btn" onclick="changePrestasi(1)">&#8594;</button>
                 <div class="prestasi-card">
                     <div class="prestasi-image">
-                        <img src="prestasi2.jpg" alt="Prestasi 2">
+                        <img src="assets/prestasi2.jpg" alt="Prestasi 2">
                     </div>
                     <div class="prestasi-content">
                         <h3>Tim Ekstrakurikuler SMAN 6 Menang dalam Lomba Debate Nasional</h3>
@@ -130,7 +148,7 @@
         <button class="prev-btn" onclick="changeExtracurricular(-1)">&#8592;</button>
         <div class="ekstrakurikuler-card">
             <div class="ekstrakurikuler-symbol">
-                <img src="basket.svg" alt="Basket" class="symbol-img">
+                <img src="assets\basket.png" alt="Basket" class="symbol-img">
             </div>
             <div class="ekstrakurikuler-text">
                 <h3>Basket</h3>
@@ -158,27 +176,26 @@
         <strong>Email:</strong> sman6tangerangkota@gmail.com</p>
     </div>
 
-    <!-- Social Media and Symbol Cards -->
+<!-- Social Media and Symbol Cards -->
     <div class="social-media-container">
         <div class="card">
             <div class="card-content">
-                <img src="school-symbol.png" alt="School Symbol" class="symbol-img">
+                <img src="assets\Logo SMA.png" alt="Logo Sekolah" class="symbol-img">
             </div>
         </div>
         <div class="card">
             <div class="card-content">
                 <p><strong>Social Media</strong></p>
                 <ul class="social-media-links">
-                    <li><a href="https://www.instagram.com/sman6tng/" target="_blank">Instagram | @sman6tng</a></li>
-                    <li><a href="https://www.instagram.com/perpus_wd/" target="_blank">Instagram | @perpus_wd</a></li>
-                    <li><a href="https://www.youtube.com/c/sman6tangerang" target="_blank">YouTube | sman6tangerang</a></li>
-                    <li><a href="https://twitter.com/sman6tng" target="_blank">Twitter | @sman6tng</a></li>
+                    <li><a href="https://www.instagram.com/sman6tng/" target="_blank">@sman6tng</a></li>
+                    <li><a href="https://www.instagram.com/perpus_wd/" target="_blank">@perpus_wd</a></li>
+                    <li><a href="https://www.youtube.com/c/sman6tangerang" target="_blank">sman6tangerang</a></li>
+                    <li><a href="https://twitter.com/sman6tng" target="_blank">@sman6tng</a></li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
-
 
     <!-- Footer -->
     <footer>
@@ -186,5 +203,7 @@
         <p>Created by UMN TEAM</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
+</html>
 </html>

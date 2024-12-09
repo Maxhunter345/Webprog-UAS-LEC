@@ -1,3 +1,34 @@
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-logo {
+    width: 100px;
+    animation: rotate 1.5s infinite linear;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 /* Reset default margin dan padding */
 body, h1, h2, p, ul, li {
     margin: 0;
@@ -13,43 +44,103 @@ body {
 
 /* Header dan Navbar */
 header {
-    background-color: white;
-    color: #1C2E4E;
-    font-weight: bolder;
-    padding: 20px 40px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 50px;
+    padding: 10px 40px;
+    transition: all 0.3s ease;
+}
+
+/* Scrolled Navbar */
+.navbar-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 4px 5px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 30%;
+}
+
+.logo-container img {
+    width: 15%;
+    height: auto;
+}
+
+.school-name {
+    color: #1C2E4E;
+    font-size: 20px;
 }
 
 .navbar .logo img {
-    width: 150px;
+    width: 30px;
 }
 
-.nav-links {
+/* Style navbar */
+ul {
+    list-style: none;
     display: flex;
-    list-style-type: none;
+    padding: 0;
 }
 
-.nav-links li {
-    margin: 0 20px;
+ul li {
+    display: inline-block;
+    position: relative;
 }
 
-.nav-links a {
+ul li a {
+    display: block;
+    padding: 20px 25px;
+    color: black;  /* Mengubah warna teks menjadi putih agar kontras */
     text-decoration: none;
-    color: #1C2E4E;
-    font-weight: bolder;
-    font-size: 16px;
-    transition: color 0.3s;
+    text-align: center;
+    font-size: 20px;
 }
 
-.nav-links a:hover {
-    color: #FFC107;
+/* Dropdown Menu Style */
+ul li ul.dropdown {
+    display: none;  /* Sembunyikan dropdown secara default */
+    position: absolute;
+    top: 100%;  /* Posisi dropdown tepat di bawah item menu */
+    left: 0;
+    background: whitesmoke; /* Pastikan dropdown memiliki latar belakang yang konsisten */
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 180px; /* Tentukan lebar minimum dropdown */
+    z-index: 100; /* Pastikan dropdown tampil di atas elemen lain */
 }
+
+ul li:hover > ul.dropdown {
+    display: block;  /* Tampilkan dropdown saat item menu dihover */
+}
+
+ul li ul.dropdown li {
+    display: block;  /* Pastikan sub-item dropdown ditampilkan secara vertikal */
+}
+
+ul li ul.dropdown li a {
+    padding: 15px 20px;
+    color: black;  /* Warna teks dropdown */
+    text-decoration: none;
+    background-color: whitesmoke; /* Latar belakang item dropdown */
+}
+
+ul li ul.dropdown li a:hover {
+    background-color: grey; /* Warna latar belakang item dropdown saat hover */
+}
+
 
 /* Hero Section */
 .hero {
@@ -60,6 +151,21 @@ header {
     padding: 100px 40px;
     background-color: #D9D9D9;
     color: white;
+    margin-top: 100px;
+    background-image: url('assets/guru.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .hero-content {
@@ -68,8 +174,10 @@ header {
 
 .hero h1 {
     font-size: 48px;
-    font-weight: 600;
+    font-weight: bolder;
     margin-bottom: 100px;
+    color: white;
+    -webkit-text-stroke: 0.8px black;
 }
 
 .hero p {
@@ -94,7 +202,7 @@ header {
 }
 
 .hero-image img {
-    max-width: 50%;
+    max-width: 10%;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
@@ -123,6 +231,11 @@ header {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: scale(1.1);
 }
 
 .feature-card img {
@@ -295,8 +408,8 @@ header {
 
 /* Bagian gambar dalam card */
 .prestasi-image img {
-    width: 100%;
-    height: 250px;
+    width: 90%;
+    height: 500px;
     object-fit: cover;
     border-radius: 15px 15px 0 0; /* Membuat gambar sudut atas melengkung */
 }
@@ -401,13 +514,14 @@ header {
 
 /* Lingkaran untuk simbol ekstrakurikuler */
 .ekstrakurikuler-symbol {
-    width: 40%;
-    height: 250px;
+    width: 90%;
+    height: 90%;
     background-color: #1C2E4E;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    object-fit: contain;
 }
 
 .symbol-img {
@@ -446,12 +560,11 @@ header {
 
 .ekstrakurikuler-text .btn-detail {
     margin-left: 73px;
-    background-color: #FFC107;
-    color: #1C2E4E;
+    background-color: #1C2E4E;
+    color: white;
     padding: 15px 30px;
     border-radius: 5px;
     text-decoration: none;
-    font-weight: bold;
     transition: background-color 0.3s;
 }
 
@@ -490,64 +603,340 @@ header {
     color: white;
 }
 
-/* Styling for Social Media and School Symbol Cards */
+/* Styling for Social Media and School Symbol Cards in Index */
 .social-media-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    width: 100%;
+    gap: 30px;
+    margin-top: 40px;
+    padding: 0 20px;
 }
 
 .card {
     background-color: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 30px;
     border-radius: 10px;
-    width: 25%;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
 }
 
 .card-content {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Logo card specific */
 .card img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
-    object-fit: contain;
+    margin-right: 30px;
+    width: 200px;  /* Increased logo size */
+    height: auto;
 }
 
 .card p {
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
     font-weight: bolder;
     color: #1C2E4E;
+    margin-right: 50px;
+    margin-bottom: 10px;  /* Space after "Social Media" */
 }
 
 /* Social Media Links */
 .social-media-links {
     list-style: none;
-    margin-left: 50px;
-    text-align: justify;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .social-media-links li {
-    font-size: 16px;
-    margin: 10px 0;
+    margin-bottom: 2px;  /* Minimal spacing between links */
+    white-space: nowrap;
+}
+
+/* Remove margin from all list items except the first one */
+.social-media-links li:not(:first-child) {
+    margin-top: 0;
 }
 
 .social-media-links a {
     text-decoration: none;
     color: #1C2E4E;
+    font-size: 16px;
+    font-weight: bolder;
     transition: color 0.3s;
+    display: block;
+    text-align: left;
+    line-height: 0;  /* Reduced line height */
 }
 
 .social-media-links a:hover {
     color: #FFC107;
 }
 
+/* Container for the entire visi-misi section */
+.visi-misi-container {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.visi-misi-container h1 {
+    font-size: 36px;
+    color: #1C2E4E;
+    margin-bottom: 40px;
+}
+
+/* Main card container */
+.main-card {
+    background-color: #1C2E4E;
+    border-radius: 15px;
+    padding: 50px;       /* Reduced padding */
+    margin: 0 auto;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;          /* Reduced gap between cards */
+}
+
+/* Individual white cards for Visi and Misi */
+.content-card-visi {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 30px;  /* Reduced padding */
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    max-width: 600px;    /* Limit maximum width */
+    margin: 0 auto;      /* Center the card */
+}
+
+.content-card-misi {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 30px;  /* Reduced padding */
+    display: flex;
+    align-items: stretch;
+    position: relative;
+}
+
+/* Left section with title */
+.card-title-visi{
+    font-size: 24px;
+    color: #1C2E4E;
+    font-weight: bold;
+    padding: 40px;
+    min-width: 80px;     /* Reduced minimum width */
+    text-align: left;
+}
+
+
+.card-title-misi {
+    font-size: 24px;
+    color: #1C2E4E;
+    font-weight: bold;
+    margin-top: 60px;
+    margin-top: 60px;
+    padding: 40px;
+    min-width: 80px;     /* Reduced minimum width */
+    text-align: left;
+}
+
+/* Vertical divider line */
+.divider {
+    position: absolute;
+    width: 4px;
+    top: 0;
+    bottom: 0;
+    background-color: #1C2E4E;
+    margin-left: 150px;  /* Adjusted margin for shorter cards */
+}
+
+/* Content section */
+.card-content {
+    color: #1C2E4E;
+    font-size: 16px;
+    line-height: 1.4;    /* Reduced line height */
+    text-align: left;
+    flex: 1;
+    margin-left: 40px;
+    padding: 30px;
+}
+
+/* Mission list specific styling */
+.mission-list {
+    list-style-position: outside;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.mission-list li {
+    margin-bottom: 5px;  /* Reduced margin between list items */
+    color: #1C2E4E;
+    line-height: 1.3;    /* Reduced line height for list items */
+    font-size: 15px;     /* Slightly reduced font size */
+}
+
+/* Container for the entire sejarah section */
+.sejarah-container {
+    padding: 80px 40px;
+    text-align: center;
+}
+
+.sejarah-container h1 {
+    font-size: 36px;
+    color: #1C2E4E;
+    margin-bottom: 40px;
+}
+
+/* Main card container */
+.sejarah-card {
+    background-color: #1C2E4E;
+    border-radius: 15px;
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    position: relative;
+    gap: 40px; /* Add space between columns and divider */
+}
+
+/* Text columns */
+.sejarah-column {
+    flex: 1;
+    color: white;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+    padding: 20px;
+    position: relative; /* For positioning relative to the divider */
+}
+
+.sejarah-column p {
+    margin-bottom: 30px; /* Add space between paragraphs */
+    color: white;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Remove margin from last paragraph in each column */
+.sejarah-column p:last-child {
+    margin-bottom: 0;
+}
+
+/* Vertical divider - updated styling */
+.sejarah-divider {
+    width: 4px; /* Thicker line */
+    background-color: white;
+    position: absolute;
+    left: 50%; /* Center in the card */
+    top: 50%; /* Start from middle */
+    transform: translateX(-50%) translateY(-50%); /* Center perfectly */
+    height: 83%; /* Make it longer but not full height */
+}
+
+/* Google Maps Section for Contact Page */
+.contact-maps-section {
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.contact-title {
+    color: #1C2E4E;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.contact-map-container {
+    width: 100%;
+}
+
+.contact-map-container iframe {
+    border-radius: 5px;
+    width: 80%;
+    height: 500px;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #1C2E4E;
+}
+
+/* Styling for Social Media and School Symbol Cards - Contact Page */
+.contact-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.contact-card {
+    background-color: #1C2E4E;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    width: 25%;
+    min-width: 250px; /* Add minimum width to prevent squishing */
+}
+
+.contact-card-content {
+    text-align: left;
+    width: 100%; /* Ensure content takes full width of card */
+}
+
+.contact-logo {
+    width: 80%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.contact-card-title {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bolder;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Updated Social Media Links styling */
+.contact-social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the links */
+}
+
+.contact-social-links li {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.contact-social-links a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+    font-size: 16px;
+    display: block; /* Make link take full width */
+    padding: 5px 0;
+}
+
+.contact-social-links a:hover {
+    color: #FFC107;
+}
 
 /* Footer */
 footer {

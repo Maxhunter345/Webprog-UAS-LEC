@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website SMA Negeri 6 Tangerang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="loading-screen" class="loading-screen">
+        <img src="assets/Logo SMA.png" alt="Loading" class="loading-logo">
+    </div>
+
+    <!-- Header dan Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="assets\Logo SMA.png" alt="SMA Negeri 6 Tangerang">
+                <h1 class="school-name">SMA Negeri 6 Tangerang</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#">Profil ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="visimisi.html">Visi dan Misi</a></li>
+                        <li><a href="sejarah.html">Sejarah</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Guru</a></li>
+                <li class="dropdown">
+                    <a href="#">Kesiswaan ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ekstrakurikuler.html">Ekstrakurikuler</a></li>
+                        <li><a href="prestasi.html">Prestasi</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">PPDB</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="assets\Logo SMA.png" alt="Hero Image">
+            </div>
+            <h1>SMA Negeri 6 Tangerang</h1>
+        </div>
+    </section>
+
+    <!-- Prestasi, Ekstrakurikuler, E-Learning, E-News, E-Library -->
+    <section class="features" id="fitur">
+        <div class="feature-cards">
+            <div class="feature-card">
+                <img src="prestasi.svg" alt="Prestasi">
+                <h3>Prestasi</h3>
+            </div>
+            <div class="feature-card">
+                <img src="ekstrakurikuler.svg" alt="Ekstrakurikuler">
+                <h3>Ekstrakurikuler</h3>
+            </div>
+            <div class="feature-card">
+                <img src="elearning.svg" alt="E-Learning">
+                <h3>E-Learning</h3>
+            </div>
+            <div class="feature-card">
+                <img src="enews.svg" alt="E-News">
+                <h3>E-News</h3>
+            </div>
+            <div class="feature-card">
+                <img src="elibrary.svg" alt="E-Library">
+                <h3>E-Library</h3>
+            </div>
+        </div>
+    </section>
+
+<!-- Berita Section (Card Berita) -->
+<section class="news">
+    <div class="news-cards">
+        <div class="news-card">
+            <img src="berita1.jpg" alt="Berita 1">
+            <div class="news-content">
+                <h3>Pemilihan Ketua OSIS Berbasis Digital: Inovasi Siswa-Siswi SMAN 6 Tangerang</h3>
+                <p>
+                    Tangerang, 22 Januari 2024 – Pemilihan ketua OSIS (MITOSIS) SMAN 6 Tangerang tahun ini dilakukan secara digital dengan menggunakan aplikasi hasil karya Projek Penguatan Profil Pelajar Pancasila (P5)
+                    <span class="btn-arrow">→</span>
+                </p>
+            </div>
+        </div>
+        <div class="news-card">
+            <img src="berita2.jpg" alt="Berita 2">
+            <div class="news-content">
+                <h3>Pemilihan Ketua OSIS Berbasis Digital: Inovasi Siswa-Siswi SMAN 6 Tangerang</h3>
+                <p>
+                    Tangerang, 22 Januari 2024 – Pemilihan ketua OSIS (MITOSIS) SMAN 6 Tangerang tahun ini dilakukan secara digital dengan menggunakan aplikasi hasil karya Projek Penguatan Profil Pelajar Pancasila (P5)
+                    <span class="btn-arrow">→</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Prestasi Section -->
+<section class="prestasi" id="prestasi">
+    <h2>Prestasi</h2>
+    <div class="prestasi-wrapper">
+        <!-- Container untuk card -->
+        <div class="prestasi-cards">
+            <!-- Card Kiri -->
+            <div class="prestasi-card-container">
+                <button class="before-btn" onclick="changePrestasi(-1)">&#8592;</button>
+                <div class="prestasi-card">
+                    <div class="prestasi-image">
+                        <img src="prestasi1.jpg" alt="Prestasi 1">
+                    </div>
+                    <div class="prestasi-content">
+                        <h3>SMA Negeri 6 Tangerang Berhasil Meraih Prestasi Kembali</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Kanan -->
+            <div class="prestasi-card-container">
+                <button class="after-btn" onclick="changePrestasi(1)">&#8594;</button>
+                <div class="prestasi-card">
+                    <div class="prestasi-image">
+                        <img src="prestasi2.jpg" alt="Prestasi 2">
+                    </div>
+                    <div class="prestasi-content">
+                        <h3>Tim Ekstrakurikuler SMAN 6 Menang dalam Lomba Debate Nasional</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Ekstrakurikuler Detail Section -->
+<section class="ekstrakurikuler-detail" id="ekstrakurikuler-detail">
+    <h2>Ekstrakurikuler</h2>
+    <div class="ekstrakurikuler-container">
+        <button class="prev-btn" onclick="changeExtracurricular(-1)">&#8592;</button>
+        <div class="ekstrakurikuler-card">
+            <div class="ekstrakurikuler-symbol">
+                <img src="assets\basket.png" alt="Basket" class="symbol-img">
+            </div>
+            <div class="ekstrakurikuler-text">
+                <h3>Basket</h3>
+                <p class="ekstrakurikuler-description">Basket SMA Negeri 6 Tangerang</p>
+                <p id="ekstrakurikuler-description" class="ekstrakurikuler-description" style="display:none;">
+                    Basket SMA Negeri 6 Tangerang menyediakan fasilitas terbaik untuk siswa yang ingin mengembangkan keterampilan olahraga mereka.
+                </p>
+                <button class="btn-detail" id="detail-btn" onclick="toggleDescription()">Detail</button>
+            </div>
+        </div>
+        <button class="next-btn" onclick="changeExtracurricular(1)">&#8594;</button>
+    </div>
+</section>
+
+<!-- Google Maps Card -->
+<section class="maps-card" id="maps-detail">
+    <h2>SMA Negeri 6 Tangerang</h2>
+    <div class="map-container">
+        <!-- Embed Google Maps iframe -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.313120572602!2d106.62419651469712!3d-6.1746997610913725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e42a28ad70f5205%3A0x1180d2d56abfe545!2sSMA%20Negeri%206%20Tangerang!5e0!3m2!1sen!2sid!4v1687765227573!5m2!1sen!2sid" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="school-contact">
+        <p><strong>Alamat:</strong> Jln. Nyimas Melati No. 2 Karanganyar Neglasari Kota Tangerang 15121</p>
+        <p><strong>No. Telpon:</strong> (021) 5587229
+        <strong>Email:</strong> sman6tangerangkota@gmail.com</p>
+    </div>
+
+    <!-- Social Media and Symbol Cards -->
+    <div class="social-media-container">
+        <div class="card">
+            <div class="card-content">
+                <img src="assets\Logo SMA.png" alt="Logo Sekolah" class="symbol-img">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <p><strong>Social Media</strong></p>
+                <ul class="social-media-links">
+                    <li><a href="https://www.instagram.com/sman6tng/" target="_blank">Instagram | @sman6tng</a></li>
+                    <li><a href="https://www.instagram.com/perpus_wd/" target="_blank">Instagram | @perpus_wd</a></li>
+                    <li><a href="https://www.youtube.com/c/sman6tangerang" target="_blank">YouTube | sman6tangerang</a></li>
+                    <li><a href="https://twitter.com/sman6tng" target="_blank">Twitter | @sman6tng</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2017 | SMA Negeri 6 Tangerang <p>
+        <p>Created by UMN TEAM</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+</html>

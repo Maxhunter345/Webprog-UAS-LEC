@@ -1,8 +1,37 @@
+// Loading Screen
+document.addEventListener('DOMContentLoaded', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const mainContent = document.getElementById('main-content');
+
+    // Function to hide loading and show content
+    function showContent() {
+        loadingScreen.classList.add('fade-out');
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            mainContent.style.display = 'block';
+        }, 500);
+    }
+
+    // Show content after a short delay
+    setTimeout(showContent, 1500);
+});
+
+// Navbar Scroll Effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled');
+    } else {
+        navbar.classList.remove('navbar-scrolled');
+    }
+});
+
 let extracurriculars = [
     {
         name: "Basket",
         description: "Basket SMA Negeri 6 Tangerang menyediakan fasilitas terbaik untuk siswa yang ingin mengembangkan keterampilan olahraga mereka.",
-        symbol: "basket.svg"
+        symbol: "basket.png"
     },
     {
         name: "Paskibra",
