@@ -1,14 +1,12 @@
 // Loading Screen
 document.addEventListener('DOMContentLoaded', function() {
     const loadingScreen = document.getElementById('loading-screen');
-    const mainContent = document.getElementById('main-content');
-
-    // Function to hide loading and show content
+    
+    // Function to hide loading screen
     function showContent() {
         loadingScreen.classList.add('fade-out');
         setTimeout(() => {
             loadingScreen.style.display = 'none';
-            mainContent.style.display = 'block';
         }, 500);
     }
 
@@ -18,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Navbar Scroll Effect
 window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
         navbar.classList.add('navbar-scrolled');
@@ -27,61 +24,110 @@ window.addEventListener('scroll', function() {
     }
 });
 
-let extracurriculars = [
-    {
-        name: "Basket",
-        description: "Basket SMA Negeri 6 Tangerang menyediakan fasilitas terbaik untuk siswa yang ingin mengembangkan keterampilan olahraga mereka.",
-        symbol: "basket.png"
-    },
-    {
-        name: "Paskibra",
-        description: "Di ekstrakurikuler Paskibra, siswa dilatih untuk menjadi anggota pasukan pengibar bendera yang memiliki kedisiplinan dan tanggung jawab yang tinggi.",
-        symbol: "paskibra.svg"
-    },
-    {
-        name: "Pramuka",
-        description: "Pramuka di SMAN 6 Tangerang mengajarkan keterampilan dasar seperti tali-temali, kepemimpinan, dan kepedulian terhadap lingkungan.",
-        symbol: "pramuka.svg"
-    },
-    {
-        name: "Teater",
-        description: "Ekstrakurikuler teater memberikan ruang bagi siswa untuk mengembangkan bakat seni peran dan berpartisipasi dalam berbagai pentas seni.",
-        symbol: "teater.svg"
-    }
-];
-
+// Ekstrakurikuler functionality
 let currentExtracurricularIndex = 0;
+let extracurriculars = []; // Will be populated by PHP
 
-// Fungsi untuk toggle deskripsi dan tombol
-function toggleDescription() {
-    var description = document.getElementById("ekstrakurikuler-description");
-    var detailBtn = document.getElementById("detail-btn");
+// Function to toggle description and button
+function toggleDescription(id = null) {
+    const description = document.getElementById(`ekstrakurikuler-description-${id || ''}`);
+    const detailBtn = document.getElementById(`detail-btn-${id || ''}`);
+    
+    if (!description || !detailBtn) return;
 
-    // Toggle visibility deskripsi
     if (description.style.display === "none") {
-        description.style.display = "block";  // Menampilkan deskripsi
-        detailBtn.innerHTML = "Tutup";  // Mengubah tombol menjadi 'Tutup'
+        description.style.display = "block";
+        detailBtn.innerHTML = "Tutup";
     } else {
-        description.style.display = "none";  // Menyembunyikan deskripsi
-        detailBtn.innerHTML = "Detail";  // Mengubah tombol kembali ke 'Detail'
+        description.style.display = "none";
+        detailBtn.innerHTML = "Detail";
     }
 }
 
+// Function to change extracurricular display
 function changeExtracurricular(direction) {
+    const container = document.querySelector('.ekstrakurikuler-container');
+    const cards = container.querySelectorAll('.ekstrakurikuler-card');
+    if (!cards.length) return;
+
     currentExtracurricularIndex += direction;
+    
+    // Handle wrapping
     if (currentExtracurricularIndex < 0) {
-        currentExtracurricularIndex = extracurriculars.length - 1; // Loop to the last
-    } else if (currentExtracurricularIndex >= extracurriculars.length) {
-        currentExtracurricularIndex = 0; // Loop to the first
+        currentExtracurricularIndex = cards.length - 1;
+    } else if (currentExtracurricularIndex >= cards.length) {
+        currentExtracurricularIndex = 0;
     }
-    updateExtracurricular();
+
+    // Hide all cards
+    cards.forEach(card => card.style.display = 'none');
+    
+    // Show current card
+    cards[currentExtracurricularIndex].style.display = 'flex';
 }
 
-function updateExtracurricular() {
-    const extracurricular = extracurriculars[currentExtracurricularIndex];
-    document.querySelector('.ekstrakurikuler-symbol img').src = extracurricular.symbol;
-    document.querySelector('.ekstrakurikuler-card h3').textContent = extracurricular.name;
-    document.querySelector('.ekstrakurikuler-description').textContent = extracurricular.description;
+// Initialize extracurricular display
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('.ekstrakurikuler-container');
+    if (!container) return;
+
+    const cards = container.querySelectorAll('.ekstrakurikuler-card');
+    if (!cards.length) return;
+
+    // Hide all cards except the first one
+    cards.forEach((card, index) => {
+        if (index !== 0) {
+            card.style.display = 'none';
+        }
+    });
+});
+
+// Handle news card clicks
+document.querySelectorAll('.news-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const newsId = this.dataset.newsId;
+        if (newsId) {
+            window.location.href = `news_detail.php?id=${newsId}`;
+        }
+    });
+});
+
+// Handle achievement card navigation
+function changePrestasi(direction) {
+    const container = document.querySelector('.prestasi-cards');
+    const cards = container.querySelectorAll('.prestasi-card-container');
+    if (!cards.length) return;
+
+    let currentIndex = Array.from(cards).findIndex(card => 
+        card.style.display !== 'none'
+    );
+    
+    if (currentIndex === -1) currentIndex = 0;
+
+    // Calculate new index
+    let newIndex = currentIndex + direction;
+    if (newIndex < 0) newIndex = cards.length - 1;
+    if (newIndex >= cards.length) newIndex = 0;
+
+    // Hide all cards
+    cards.forEach(card => card.style.display = 'none');
+    
+    // Show new card
+    cards[newIndex].style.display = 'block';
 }
 
-updateExtracurricular(); // Initialize with the first extracurricular
+// Initialize achievement display
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelector('.prestasi-cards');
+    if (!container) return;
+
+    const cards = container.querySelectorAll('.prestasi-card-container');
+    if (!cards.length) return;
+
+    // Hide all cards except the first one
+    cards.forEach((card, index) => {
+        if (index !== 0) {
+            card.style.display = 'none';
+        }
+    });
+});
